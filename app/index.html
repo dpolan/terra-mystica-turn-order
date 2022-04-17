@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terra Mystica - Turn order tool</title>
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <!-- endbuild -->
+  </head>
+  <body>
+    <main id="app" class="app">
+      <div id="slider" class="app__slider">
+        <!-- 1. Bienvenida / selección de número de jugadores -->
+        <section class="view" data-nav-id="1">
+          <h1 class="view__title">Turn order tool</h1>
+
+          <h2 class="view__subtitle">for Terra Mystica</h2>
+
+          <p class="view__description">Lorem ipsum dolor sit amet</p>
+
+          <button
+            type="button"
+            class="button button--primary"
+            data-nav-page="2"
+          >
+            New game
+          </button>
+        </section>
+
+        <!-- 2. Selección de raza y maybe el nombre del jugador -->
+        <section class="view" data-nav-id="2">
+          <p class="view__description">Choose the faction for each player</p>
+
+          <button
+            type="button"
+            class="button button--primary"
+            data-nav-page="3"
+          >
+            Submit
+          </button>
+        </section>
+
+        <!-- 3. Recordatorio de fase e interacción con el orden de turno -->
+        <section class="view" data-nav-id="3">
+          <button
+            type="button"
+            class="button button--primary"
+            data-nav-page="1"
+          >
+            Restart game
+          </button>
+        </section>
+      </div>
+    </main>
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/modules/App.js"></script>
+    <!-- endbuild -->
+
+    <script>
+      window.TerraMystica.App.init();
+    </script>
+  </body>
+</html>
