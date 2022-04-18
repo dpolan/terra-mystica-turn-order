@@ -162,10 +162,67 @@
 
         <!-- 3. Recordatorio de fase e interacción con el orden de turno -->
         <section class="view" data-nav-id="3">
+          <aside id="rounds" class="rounds">
+            <div class="round is-active" data-round-index="1">1</div>
+            <div class="round" data-round-index="2">2</div>
+            <div class="round" data-round-index="3">3</div>
+            <div class="round" data-round-index="4">4</div>
+            <div class="round" data-round-index="5">5</div>
+            <div class="round" data-round-index="6">6</div>
+          </aside>
+
+          <div id="order-board" class="order-board">
+            <div class="order-board__col" data-order-col="odd">
+              <button
+                type="button"
+                class="faction faction--chaos-magicians"
+                data-order-faction
+              >
+                Chaos Magicians
+              </button>
+              <button
+                type="button"
+                class="faction faction--mermaids"
+                data-order-faction
+              >
+                Mermaids
+              </button>
+              <button
+                type="button"
+                class="faction faction--darklings"
+                data-order-faction
+              >
+                Darklings
+              </button>
+              <button
+                type="button"
+                class="faction faction--dwarves"
+                data-order-faction
+              >
+                Dwarves
+              </button>
+              <button
+                type="button"
+                class="faction faction--fakirs"
+                data-order-faction
+              >
+                Fakirs
+              </button>
+            </div>
+            <!-- <div class="order-board__col">
+              <div class="order-board__number">I</div>
+              <div class="order-board__number">II</div>
+              <div class="order-board__number">III</div>
+              <div class="order-board__number">IV</div>
+              <div class="order-board__number">V</div>
+            </div> -->
+            <div class="order-board__col" data-order-col="even"></div>
+          </div>
+
           <button
             type="button"
             class="button button--primary"
-            data-nav-page="1"
+            data-nav-page="2"
           >
             Restart game
           </button>

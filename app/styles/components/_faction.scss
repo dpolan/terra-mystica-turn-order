@@ -9,102 +9,111 @@
     justify-content: center;
     margin: em(12) 0;
   }
+}
 
-  .faction {
-    font: normal em(12) / 1 $font-secondary;
-    width: 20vw;
-    height: 20vw;
-    border: em(3) solid #8e8f91;
-    border-radius: 100%;
-    box-shadow: 0 em(1) em(8) rgba(#121212, 0.5);
-    // inset 0.4em 0.4em 0.8em rgba(#9f4014, 0.5);
-    transition: all 0.3s ease-in-out;
+.faction {
+  font: normal em(12) / 1 $font-secondary;
+  width: 20vw;
+  height: 20vw;
+  border: em(3) solid #8e8f91;
+  border-radius: 100%;
+  box-shadow: 0 em(1) em(8) rgba(#121212, 0.5);
+  // inset 0.4em 0.4em 0.8em rgba(#9f4014, 0.5);
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
-    &:focus,
-    &:hover,
-    &.is-active {
-      border-color: #d4c34d;
-      box-shadow: 0 em(1) em(8) rgba(#d4c34d, 0.5);
-    }
+  &:focus,
+  &:hover,
+  &.is-active {
+    border-color: #d4c34d;
+    box-shadow: 0 em(1) em(8) rgba(#d4c34d, 0.5);
+  }
 
-    &--chaos-magicians {
-      background: map-get($colors, faction-red);
-    }
+  &.is-invisible {
+    pointer-events: none;
+    visibility: hidden;
+  }
 
-    &--giants {
-      background: map-get($colors, faction-red);
-    }
+  &.is-inactive {
+    pointer-events: none;
+  }
 
-    &--fakirs {
-      background: map-get($colors, faction-yellow);
-    }
+  &--chaos-magicians {
+    background: map-get($colors, faction-red);
+  }
 
-    &--nomads {
-      background: map-get($colors, faction-yellow);
-    }
+  &--giants {
+    background: map-get($colors, faction-red);
+  }
 
-    &--halflings {
-      background: map-get($colors, faction-brown);
-    }
+  &--fakirs {
+    background: map-get($colors, faction-yellow);
+  }
 
-    &--cultists {
-      background: map-get($colors, faction-brown);
-    }
+  &--nomads {
+    background: map-get($colors, faction-yellow);
+  }
 
-    &--alchemists {
-      background: map-get($colors, faction-black);
-    }
+  &--halflings {
+    background: map-get($colors, faction-brown);
+  }
 
-    &--darklings {
-      background: map-get($colors, faction-black);
-    }
+  &--cultists {
+    background: map-get($colors, faction-brown);
+  }
 
-    &--mermaids {
-      background: map-get($colors, faction-blue);
-    }
+  &--alchemists {
+    background: map-get($colors, faction-black);
+  }
 
-    &--swarmlings {
-      background: map-get($colors, faction-blue);
-    }
+  &--darklings {
+    background: map-get($colors, faction-black);
+  }
 
-    &--auren {
-      background: map-get($colors, faction-green);
-    }
+  &--mermaids {
+    background: map-get($colors, faction-blue);
+  }
 
-    &--witches {
-      background: map-get($colors, faction-green);
-    }
+  &--swarmlings {
+    background: map-get($colors, faction-blue);
+  }
 
-    &--engineers {
-      background: map-get($colors, faction-gray);
-    }
+  &--auren {
+    background: map-get($colors, faction-green);
+  }
 
-    &--dwarves {
-      background: map-get($colors, faction-gray);
-    }
+  &--witches {
+    background: map-get($colors, faction-green);
+  }
 
-    &--yetis {
-      background: map-get($colors, faction-blue);
-    }
+  &--engineers {
+    background: map-get($colors, faction-gray);
+  }
 
-    &--ice-maidens {
-      background: map-get($colors, faction-blue);
-    }
+  &--dwarves {
+    background: map-get($colors, faction-gray);
+  }
 
-    &--acolytes {
-      background: map-get($colors, faction-red);
-    }
+  &--yetis {
+    background: map-get($colors, faction-blue);
+  }
 
-    &--dragonlords {
-      background: map-get($colors, faction-red);
-    }
+  &--ice-maidens {
+    background: map-get($colors, faction-blue);
+  }
 
-    &--shapeshifters {
-      background: map-get($colors, faction-gray);
-    }
+  &--acolytes {
+    background: map-get($colors, faction-red);
+  }
 
-    &--riverwalkers {
-      background: map-get($colors, faction-gray);
-    }
+  &--dragonlords {
+    background: map-get($colors, faction-red);
+  }
+
+  &--shapeshifters {
+    background: map-get($colors, faction-gray);
+  }
+
+  &--riverwalkers {
+    background: map-get($colors, faction-gray);
   }
 }

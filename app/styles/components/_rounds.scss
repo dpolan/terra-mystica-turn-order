@@ -1,0 +1,27 @@
+.rounds {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: 0 0 em(24);
+
+  .round {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: normal em(16) / 1 $font-primary;
+    color: map-get($colors, accent);
+    width: 8vw;
+    height: 8vw;
+    border-radius: 100%;
+    background-color: darken(map-get($colors, background), 10%);
+    box-shadow: 0 em(1) em(4) rgba(#121212, 0.5);
+    border: em(2) solid map-get($colors, accent);
+    text-shadow: 0 0 em(4) #121212;
+
+    &.is-active {
+      color: #fff;
+      background-color: darken(map-get($colors, accent), 30%);
+    }
+  }
+}

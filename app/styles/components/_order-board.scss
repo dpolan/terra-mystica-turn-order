@@ -1,0 +1,24 @@
+.order-board {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+
+  &__col {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 50%;
+
+    &[data-order-col='odd'] {
+      align-items: flex-start;
+    }
+
+    &[data-order-col='even'] {
+      align-items: flex-end;
+    }
+
+    .faction {
+      margin: 0 0 em(12);
+    }
+  }
+}
