@@ -1,1 +1,17 @@
-$colors: ();
+$colors: (
+  background: #426480,
+  primary: #eedaa1,
+  secondary: #08292f,
+  faction-red: linear-gradient(to bottom, lighten(#c05c2f, 20%), #c05c2f),
+  faction-yellow: linear-gradient(to bottom, lighten(#dcb53f, 20%), #dcb53f),
+  faction-brown: linear-gradient(to bottom, lighten(#845b37, 20%), #845b37),
+  faction-black: linear-gradient(to bottom, lighten(#3d3f33, 20%), #3d3f33),
+  faction-blue: linear-gradient(to bottom, lighten(#549bb3, 20%), #549bb3),
+  faction-green: linear-gradient(to bottom, lighten(#61a23e, 20%), #61a23e),
+  faction-gray: linear-gradient(to bottom, lighten(#939391, 20%), #939391),
+  faction-ice: linear-gradient(to bottom, lighten(#c05c2f, 20%), #c05c2f),
+  faction-fire: linear-gradient(to bottom, lighten(#c05c2f, 20%), #c05c2f),
+);
+
+$font-primary: Forum, cursive;
+$font-secondary: 'PT Serif', serif;
