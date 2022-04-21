@@ -10,6 +10,34 @@ window.TerraMystica.App = (() => {
   let currentView = 1;
 
   /**
+   * Configures the current view behavior
+   */
+  const configureCurrentView = () => {
+    const actions = {};
+
+    actions[3] = () => {
+      const orderFactions = document.querySelectorAll('[data-order-faction]');
+
+      orderFactions.forEach((element) => {
+        element.removeEventListener('click', onOrderFactionClick);
+        element.addEventListener('click', onOrderFactionClick);
+      });
+
+      currentRound = 1;
+
+      const targetRound = document.querySelector(
+        `[data-round-index="${currentRound}"]`
+      );
+
+      targetRound.classList.add('is-active');
+    };
+
+    if (actions[currentView]) {
+      actions[currentView]();
+    }
+  };
+
+  /**
    * Navigates to the target view, making it visible
    * @param {Number} index - Index of the target view
    */
@@ -40,6 +68,8 @@ window.TerraMystica.App = (() => {
       slider.style.transform = `translateX(-${33.3 * (index - 1)}%)`;
 
       currentView = index;
+
+      configureCurrentView();
     }
   };
 
@@ -117,7 +147,6 @@ window.TerraMystica.App = (() => {
       // Check if the game has ended
       if (currentRound > totalRounds) {
         navigateToView(2);
-        currentRound = 1;
         // totalPlayers = 0;
       }
     }
@@ -132,13 +161,6 @@ window.TerraMystica.App = (() => {
 
     links.forEach((element) => {
       element.addEventListener('click', onLinkClick);
-    });
-
-    // TODO: Make this check only when factions are added to third view
-    const orderFactions = document.querySelectorAll('[data-order-faction]');
-
-    orderFactions.forEach((element) => {
-      element.addEventListener('click', onOrderFactionClick);
     });
   };
 

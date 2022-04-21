@@ -7,18 +7,18 @@
     width: 33.33%;
     display: flex;
     justify-content: center;
-    margin: em(12) 0;
+    margin: em(7) 0;
   }
 }
 
 .faction {
-  font: normal em(12) / 1 $font-secondary;
-  width: 20vw;
-  height: 20vw;
+  font: normal em(11) / 1 $font-secondary;
+  color: white;
+  text-shadow: 0 0 em(4, 11) rgba(#121212, 0.7);
+  width: em(68, 11);
+  height: em(68, 11);
   border: em(3) solid #8e8f91;
   border-radius: 100%;
-  box-shadow: 0 em(1) em(8) rgba(#121212, 0.5);
-  // inset 0.4em 0.4em 0.8em rgba(#9f4014, 0.5);
   transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
   &:focus,
@@ -37,83 +37,73 @@
     pointer-events: none;
   }
 
-  &--chaos-magicians {
-    background: map-get($colors, faction-red);
-  }
-
+  &--chaos-magicians,
   &--giants {
-    background: map-get($colors, faction-red);
+    box-shadow: em(1) em(1) em(8) rgba(#121212, 0.6),
+      inset 0 0 em(20) rgba(darken(map-get($colors, faction-red), 10%), 0.8);
+    background: map-get($colors, faction-red-gradient);
   }
 
-  &--fakirs {
-    background: map-get($colors, faction-yellow);
-  }
-
+  &--fakirs,
   &--nomads {
-    background: map-get($colors, faction-yellow);
+    box-shadow: em(1) em(1) em(8) rgba(#121212, 0.6),
+      inset 0 0 em(20) rgba(darken(map-get($colors, faction-yellow), 10%), 0.8);
+    background: map-get($colors, faction-yellow-gradient);
   }
 
-  &--halflings {
-    background: map-get($colors, faction-brown);
-  }
-
+  &--halflings,
   &--cultists {
-    background: map-get($colors, faction-brown);
+    box-shadow: em(1) em(1) em(8) rgba(#121212, 0.6),
+      inset 0 0 em(20) rgba(darken(map-get($colors, faction-brown), 10%), 0.8);
+    background: map-get($colors, faction-brown-gradient);
   }
 
-  &--alchemists {
-    background: map-get($colors, faction-black);
-  }
-
+  &--alchemists,
   &--darklings {
-    background: map-get($colors, faction-black);
+    box-shadow: em(1) em(1) em(8) rgba(#121212, 0.6),
+      inset 0 0 em(20) rgba(darken(map-get($colors, faction-black), 10%), 0.8);
+    background: map-get($colors, faction-black-gradient);
   }
 
-  &--mermaids {
-    background: map-get($colors, faction-blue);
-  }
-
+  &--mermaids,
   &--swarmlings {
-    background: map-get($colors, faction-blue);
+    box-shadow: em(1) em(1) em(8) rgba(#121212, 0.6),
+      inset 0 0 em(20) rgba(darken(map-get($colors, faction-blue), 10%), 0.8);
+    background: map-get($colors, faction-blue-gradient);
   }
 
-  &--auren {
-    background: map-get($colors, faction-green);
-  }
-
+  &--auren,
   &--witches {
-    background: map-get($colors, faction-green);
+    box-shadow: em(1) em(1) em(8) rgba(#121212, 0.6),
+      inset 0 0 em(20) rgba(darken(map-get($colors, faction-green), 10%), 0.8);
+    background: map-get($colors, faction-green-gradient);
   }
 
-  &--engineers {
-    background: map-get($colors, faction-gray);
-  }
-
+  &--engineers,
   &--dwarves {
-    background: map-get($colors, faction-gray);
+    box-shadow: em(1) em(1) em(8) rgba(#121212, 0.6),
+      inset 0 0 em(20) rgba(darken(map-get($colors, faction-gray), 10%), 0.8);
+    background: map-get($colors, faction-gray-gradient);
   }
 
-  &--yetis {
-    background: map-get($colors, faction-blue);
-  }
-
+  &--yetis,
   &--ice-maidens {
-    background: map-get($colors, faction-blue);
+    box-shadow: em(1) em(1) em(8) rgba(#121212, 0.6),
+      inset 0 0 em(20) rgba(darken(map-get($colors, faction-blue), 10%), 0.8);
+    background: map-get($colors, faction-blue-gradient);
   }
 
-  &--acolytes {
-    background: map-get($colors, faction-red);
-  }
-
+  &--acolytes,
   &--dragonlords {
-    background: map-get($colors, faction-red);
+    box-shadow: em(1) em(1) em(8) rgba(#121212, 0.6),
+      inset 0 0 em(20) rgba(darken(map-get($colors, faction-red), 10%), 0.8);
+    background: map-get($colors, faction-red-gradient);
   }
 
-  &--shapeshifters {
-    background: map-get($colors, faction-gray);
-  }
-
+  &--shapeshifters,
   &--riverwalkers {
-    background: map-get($colors, faction-gray);
+    box-shadow: em(1) em(1) em(8) rgba(#121212, 0.6),
+      inset 0 0 em(20) rgba(darken(map-get($colors, faction-gray), 10%), 0.8);
+    background: map-get($colors, faction-gray-gradient);
   }
 }
