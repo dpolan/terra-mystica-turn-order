@@ -22,10 +22,10 @@
   transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
   &:focus,
-  &:hover,
   &.is-active {
     border-color: #d4c34d;
-    box-shadow: 0 em(1) em(8) rgba(#d4c34d, 0.5);
+    box-shadow: em(1) em(1) em(8) rgba(#121212, 1),
+      inset 0 0 em(8) rgba(#121212, 0.5);
   }
 
   &.is-invisible {
