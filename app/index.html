@@ -26,206 +26,212 @@
       <div id="slider" class="app__slider">
         <!-- 1. Bienvenida / selección de número de jugadores -->
         <section class="view" data-nav-id="1">
-          <h1 class="view__title">Turn order tool</h1>
+          <div class="view__content">
+            <h1 class="view__title">Turn order tool</h1>
 
-          <h2 class="view__subtitle">for Terra Mystica</h2>
+            <h2 class="view__subtitle">for Terra Mystica</h2>
 
-          <p class="view__description">
-            The path of the righteous man is beset on all sides by the
-            iniquities of the selfish and the tyranny of evil men.
-          </p>
+            <p class="view__description">
+              The path of the righteous man is beset on all sides by the
+              iniquities of the selfish and the tyranny of evil men.
+            </p>
 
-          <button
-            type="button"
-            class="button button--primary"
-            data-nav-page="2"
-          >
-            New game
-          </button>
+            <button
+              type="button"
+              class="button button--primary m-top"
+              data-nav-page="2"
+            >
+              New game
+            </button>
+          </div>
         </section>
 
         <!-- 2. Selección de raza y maybe el nombre del jugador -->
         <section class="view" data-nav-id="2">
-          <p class="view__description">Choose the faction for each player</p>
+          <div class="view__content">
+            <p class="view__description">Choose the faction for each player</p>
 
-          <div class="factions">
-            <div class="factions__cell">
-              <button type="button" class="faction faction--chaos-magicians">
-                Chaos Magicians
-              </button>
+            <div class="factions">
+              <div class="factions__cell">
+                <button type="button" class="faction faction--chaos-magicians">
+                  Chaos Magicians
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--giants">
+                  Giants
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--fakirs">
+                  Fakirs
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--nomads">
+                  Nomads
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--halflings">
+                  Halflings
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--cultists">
+                  Cultists
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--alchemists">
+                  Alchemists
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--darklings">
+                  Darklings
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--mermaids">
+                  Mermaids
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--swarmlings">
+                  Swarmlings
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--auren">
+                  Auren
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--witches">
+                  Witches
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--engineers">
+                  Engineers
+                </button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--dwarves">
+                  Dwarves
+                </button>
+              </div>
+              <!-- <div class="factions__cell">
+                <button type="button" class="faction faction--yetis"></button>
+              </div>
+              <div class="factions__cell">
+                <button
+                  type="button"
+                  class="faction faction--ice-maidens"
+                ></button>
+              </div>
+              <div class="factions__cell">
+                <button type="button" class="faction faction--acolytes"></button>
+              </div>
+              <div class="factions__cell">
+                <button
+                  type="button"
+                  class="faction faction--dragonlords"
+                ></button>
+              </div>
+              <div class="factions__cell">
+                <button
+                  type="button"
+                  class="faction faction--shapeshifters"
+                ></button>
+              </div>
+              <div class="factions__cell">
+                <button
+                  type="button"
+                  class="faction faction--riverwalkers"
+                ></button>
+              </div> -->
             </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--giants">
-                Giants
-              </button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--fakirs">
-                Fakirs
-              </button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--nomads">
-                Nomads
-              </button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--halflings">
-                Halflings
-              </button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--cultists">
-                Cultists
-              </button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--alchemists">
-                Alchemists
-              </button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--darklings">
-                Darklings
-              </button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--mermaids">
-                Mermaids
-              </button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--swarmlings">
-                Swarmlings
-              </button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--auren">
-                Auren
-              </button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--witches">
-                Witches
-              </button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--engineers">
-                Engineers
-              </button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--dwarves">
-                Dwarves
-              </button>
-            </div>
-            <!-- <div class="factions__cell">
-              <button type="button" class="faction faction--yetis"></button>
-            </div>
-            <div class="factions__cell">
-              <button
-                type="button"
-                class="faction faction--ice-maidens"
-              ></button>
-            </div>
-            <div class="factions__cell">
-              <button type="button" class="faction faction--acolytes"></button>
-            </div>
-            <div class="factions__cell">
-              <button
-                type="button"
-                class="faction faction--dragonlords"
-              ></button>
-            </div>
-            <div class="factions__cell">
-              <button
-                type="button"
-                class="faction faction--shapeshifters"
-              ></button>
-            </div>
-            <div class="factions__cell">
-              <button
-                type="button"
-                class="faction faction--riverwalkers"
-              ></button>
-            </div> -->
+
+            <button
+              type="button"
+              class="button button--primary"
+              data-nav-page="3"
+            >
+              Submit
+            </button>
           </div>
-
-          <button
-            type="button"
-            class="button button--primary"
-            data-nav-page="3"
-          >
-            Submit
-          </button>
         </section>
 
         <!-- 3. Recordatorio de fase e interacción con el orden de turno -->
         <section class="view" data-nav-id="3">
-          <aside id="rounds" class="rounds">
-            <div class="round is-active" data-round-index="1">1</div>
-            <div class="round" data-round-index="2">2</div>
-            <div class="round" data-round-index="3">3</div>
-            <div class="round" data-round-index="4">4</div>
-            <div class="round" data-round-index="5">5</div>
-            <div class="round" data-round-index="6">6</div>
-          </aside>
+          <div class="view__content">
+            <aside id="rounds" class="rounds">
+              <div class="round is-active" data-round-index="1">1</div>
+              <div class="round" data-round-index="2">2</div>
+              <div class="round" data-round-index="3">3</div>
+              <div class="round" data-round-index="4">4</div>
+              <div class="round" data-round-index="5">5</div>
+              <div class="round" data-round-index="6">6</div>
+            </aside>
 
-          <div id="order-board" class="order-board">
-            <div class="order-board__col" data-order-col="odd">
-              <button
-                type="button"
-                class="faction faction--chaos-magicians"
-                data-order-faction
-              >
-                Chaos Magicians
-              </button>
-              <button
-                type="button"
-                class="faction faction--mermaids"
-                data-order-faction
-              >
-                Mermaids
-              </button>
-              <button
-                type="button"
-                class="faction faction--darklings"
-                data-order-faction
-              >
-                Darklings
-              </button>
-              <button
-                type="button"
-                class="faction faction--dwarves"
-                data-order-faction
-              >
-                Dwarves
-              </button>
-              <button
-                type="button"
-                class="faction faction--fakirs"
-                data-order-faction
-              >
-                Fakirs
-              </button>
+            <div id="order-board" class="order-board">
+              <div class="order-board__col" data-order-col="odd">
+                <button
+                  type="button"
+                  class="faction faction--chaos-magicians"
+                  data-order-faction
+                >
+                  Chaos Magicians
+                </button>
+                <button
+                  type="button"
+                  class="faction faction--mermaids"
+                  data-order-faction
+                >
+                  Mermaids
+                </button>
+                <button
+                  type="button"
+                  class="faction faction--darklings"
+                  data-order-faction
+                >
+                  Darklings
+                </button>
+                <button
+                  type="button"
+                  class="faction faction--dwarves"
+                  data-order-faction
+                >
+                  Dwarves
+                </button>
+                <button
+                  type="button"
+                  class="faction faction--fakirs"
+                  data-order-faction
+                >
+                  Fakirs
+                </button>
+              </div>
+              <!-- <div class="order-board__col">
+                <div class="order-board__number">I</div>
+                <div class="order-board__number">II</div>
+                <div class="order-board__number">III</div>
+                <div class="order-board__number">IV</div>
+                <div class="order-board__number">V</div>
+              </div> -->
+              <div class="order-board__col" data-order-col="even"></div>
             </div>
-            <!-- <div class="order-board__col">
-              <div class="order-board__number">I</div>
-              <div class="order-board__number">II</div>
-              <div class="order-board__number">III</div>
-              <div class="order-board__number">IV</div>
-              <div class="order-board__number">V</div>
-            </div> -->
-            <div class="order-board__col" data-order-col="even"></div>
-          </div>
 
-          <button
-            type="button"
-            class="button button--primary"
-            data-nav-page="2"
-          >
-            Restart game
-          </button>
+            <button
+              type="button"
+              class="button button--primary"
+              data-nav-page="2"
+            >
+              Restart game
+            </button>
+          </div>
         </section>
       </div>
     </main>

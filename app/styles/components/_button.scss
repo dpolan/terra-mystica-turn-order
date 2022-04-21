@@ -5,10 +5,14 @@
   border: none;
 
   &--primary {
-    font: normal em(20) / 1 $font-primary;
-    background: map-get($colors, primary);
-    padding: em(8, 20) em(14, 20);
-    border-radius: em(6, 20);
-    border: em(2, 20) solid map-get($colors, secondary);
+    font: normal em(16) / 1 $font-secondary;
+    text-transform: uppercase;
+    color: map-get($colors, accent);
+    background: map-get($colors, background);
+    padding: em(8, 16) em(14, 16);
+    border-radius: em(6, 16);
+    border: em(2, 16) solid map-get($colors, accent);
+    box-shadow: 0 0 em(12, 16) rgba(#121212, 0.6),
+      inset 0 0 em(4, 16) rgba(#121212, 0.3);
   }
 }

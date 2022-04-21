@@ -19,6 +19,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: url('../images/table-background.jpg') 50% 50% / cover no-repeat;
 
   &__slider {
     display: flex;
@@ -31,28 +32,47 @@ body {
 
 .view {
   flex: 0 0 auto;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
   width: 33.33%;
   height: 100%;
-  padding: em(24);
-  background-color: map-get($colors, background);
+  padding: em(16);
+
+  &__content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: map-get($colors, background);
+    background: url('../images/view-background.jpg') 50% 50% / cover no-repeat;
+    padding: em(24);
+    border-radius: em(12);
+    box-shadow: 0 0 em(12) rgba(#121212, 0.6), 0 0 em(6) rgba(#121212, 0.5);
+    border: 1px solid #637d93;
+  }
 
   &__title {
-    font: normal em(36) / 1.1 $font-primary;
+    font: normal em(40) / 1.1 $font-primary;
     color: map-get($colors, primary);
+    @include text-stroke(
+      $size: 2,
+      $color: lighten(map-get($colors, secondary), 2%)
+    );
   }
 
   &__subtitle {
-    font: normal em(20) / 1.1 $font-primary;
+    font: normal em(24) / 1.1 $font-primary;
     color: map-get($colors, primary);
-    margin: 0 0 em(12, 22);
+    margin: 0 0 em(20, 24);
+    @include text-stroke(
+      $size: 1,
+      $color: lighten(map-get($colors, secondary), 2%)
+    );
   }
 
   &__description {
-    font: normal em(14) / 1.3 $font-secondary;
+    font: italic em(14) / 1.3 $font-secondary;
+    color: map-get($colors, text);
+    text-shadow: 0 0 em(12, 14) #121212;
     text-align: center;
     margin: 0 0 em(18, 14);
   }
