@@ -5,7 +5,6 @@ Aplicación web para implementar el cambio de orden de turno dinámico incluido 
 ## TODO
 
 - [x] Layout básico estático
+- [x] Control de orden de turno
+- [ ] Selección de raza (excluyentes por color) y cómputo de jugadores
 - [ ] Comportamiento responsive (fluído independientemente de la orientación)
-- [ ] Configuración de jugadores
-- [ ] Selección de raza
-- [ ] Control de orden de turno
