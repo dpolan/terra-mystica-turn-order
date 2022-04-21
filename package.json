@@ -61,5 +61,8 @@
   },
   "prettier": {
     "singleQuote": true
+  },
+  "dependencies": {
+    "gsap": "^3.10.3"
   }
 }

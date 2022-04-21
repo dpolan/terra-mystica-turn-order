@@ -1,10 +1,13 @@
 window.TerraMystica = window.TerraMystica || {};
 
 window.TerraMystica.App = (() => {
+  const { gsap, Power4 } = window;
+
   const totalRounds = 6;
   let currentRound = 1;
   let totalPlayers = 5;
   let playersPassed = 0;
+  let currentView = 1;
 
   /**
    * Navigates to the target view, making it visible
@@ -14,8 +17,29 @@ window.TerraMystica.App = (() => {
     const view = document.querySelector(`[data-nav-id="${index}"]`);
 
     if (view !== null) {
+      const currentContent = document.querySelector(
+        `[data-nav-id="${currentView}"] .view__content`
+      );
+      const targetContent = view.querySelector('.view__content');
+
+      gsap.to(currentContent, {
+        duration: 0.8,
+        scale: 1.04,
+        ease: Power4.easeInOut,
+        clearProps: 'all',
+      });
+
+      gsap.from(targetContent, {
+        duration: 0.8,
+        delay: 0.2,
+        scale: 1.04,
+        ease: Power4.easeInOut,
+      });
+
       const slider = document.getElementById('slider');
       slider.style.transform = `translateX(-${33.3 * (index - 1)}%)`;
+
+      currentView = index;
     }
   };
 
