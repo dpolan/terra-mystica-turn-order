@@ -15,21 +15,50 @@ window.TerraMystica.App = (() => {
    * Configures the current view behavior
    */
   const configureCurrentView = () => {
+    const { Utils } = window.TerraMystica;
+
     const actions = {};
 
     // Faction selection
     actions[2] = () => {
+      // Empty the selected faction array
+      selectedFactions = [];
+      updateTotalPlayerCount();
+
       // Add listeners for the factions being selected
       document.querySelectorAll('[data-faction-select]').forEach((button) => {
+        button.classList.remove('is-active');
+        button.removeEventListener('click', onFactionSelectClick);
         button.addEventListener('click', onFactionSelectClick);
       });
-
-      // Check that two factions of the same color cannot be selected (one disables the other)
     };
 
     // Turn order
     actions[3] = () => {
-      const orderFactions = document.querySelectorAll('[data-order-faction]');
+      // Empty the faction turn orders
+      let orderFactions = document.querySelectorAll('[data-order-faction]');
+
+      orderFactions.forEach((element) => {
+        element.remove();
+      });
+
+      // Randomize selected factions
+      Utils.shuffle(selectedFactions);
+
+      // Insert a faction turn order for each selected faction on previous step
+      const col = document.querySelector('[data-order-col="odd"]');
+
+      selectedFactions.forEach((faction) => {
+        const turnOrderElement = document.createElement('button');
+        turnOrderElement.type = 'button';
+        turnOrderElement.classList.add('faction', `faction--${faction.slug}`);
+        turnOrderElement.dataset.orderFaction = '';
+        turnOrderElement.textContent = faction.name;
+
+        col.append(turnOrderElement);
+      });
+
+      orderFactions = document.querySelectorAll('[data-order-faction]');
 
       orderFactions.forEach((element) => {
         element.removeEventListener('click', onOrderFactionClick);
@@ -52,8 +81,8 @@ window.TerraMystica.App = (() => {
 
   /**
    * Search for a faction with the given slug
-   * @param  {String} slug - Identifier of the target faction
-   * @return {Object}      - Data object for the found faction
+   * @param   {String} slug - Identifier of the target faction
+   * @returns {Object}      - Data object for the found faction
    */
   const findSelectedFactionBySlug = (slug) => {
     for (let i = 0, l = selectedFactions.length; i < l; i += 1) {
@@ -69,8 +98,8 @@ window.TerraMystica.App = (() => {
 
   /**
    * Search for a faction with the given color
-   * @param  {String} color - Color of the target faction
-   * @return {Object}       - Data object for the found faction
+   * @param   {String} color - Color of the target faction
+   * @returns {Object}       - Data object for the found faction
    */
   const findSelectedFactionByColor = (color) => {
     for (let i = 0, l = selectedFactions.length; i < l; i += 1) {
@@ -277,7 +306,6 @@ window.TerraMystica.App = (() => {
       // Check if the game has ended
       if (currentRound > TOTAL_ROUNDS) {
         navigateToView(2);
-        // totalPlayers = 0;
       }
     }
   };
