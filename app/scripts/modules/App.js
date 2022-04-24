@@ -3,9 +3,11 @@ window.TerraMystica = window.TerraMystica || {};
 window.TerraMystica.App = (() => {
   const { gsap, Power4 } = window;
 
-  const totalRounds = 6;
+  const TOTAL_ROUNDS = 6;
+  const MAX_PLAYERS = 5;
+
   let currentRound = 1;
-  let totalPlayers = 5;
+  let selectedFactions = [];
   let playersPassed = 0;
   let currentView = 1;
 
@@ -15,6 +17,17 @@ window.TerraMystica.App = (() => {
   const configureCurrentView = () => {
     const actions = {};
 
+    // Faction selection
+    actions[2] = () => {
+      // Add listeners for the factions being selected
+      document.querySelectorAll('[data-faction-select]').forEach((button) => {
+        button.addEventListener('click', onFactionSelectClick);
+      });
+
+      // Check that two factions of the same color cannot be selected (one disables the other)
+    };
+
+    // Turn order
     actions[3] = () => {
       const orderFactions = document.querySelectorAll('[data-order-faction]');
 
@@ -35,6 +48,123 @@ window.TerraMystica.App = (() => {
     if (actions[currentView]) {
       actions[currentView]();
     }
+  };
+
+  /**
+   * Search for a faction with the given slug
+   * @param  {String} slug - Identifier of the target faction
+   * @return {Object}      - Data object for the found faction
+   */
+  const findSelectedFactionBySlug = (slug) => {
+    for (let i = 0, l = selectedFactions.length; i < l; i += 1) {
+      const faction = selectedFactions[i];
+
+      if (faction.slug === slug) {
+        return faction;
+      }
+    }
+
+    return null;
+  };
+
+  /**
+   * Search for a faction with the given color
+   * @param  {String} color - Color of the target faction
+   * @return {Object}       - Data object for the found faction
+   */
+  const findSelectedFactionByColor = (color) => {
+    for (let i = 0, l = selectedFactions.length; i < l; i += 1) {
+      const faction = selectedFactions[i];
+
+      if (faction.color === color) {
+        return faction;
+      }
+    }
+
+    return null;
+  };
+
+  /**
+   * Removes a faction with the given slug
+   * @param  {String} slug - Identifier of the target faction
+   */
+  const removeSelectedFactionBySlug = (slug) => {
+    selectedFactions = selectedFactions.filter((faction) => {
+      return faction.slug !== slug;
+    });
+  };
+
+  /**
+   * Creates a copy of the target faction
+   * @param  {String} slug - Identifier of the target faction
+   * @return {Object}
+   */
+  const getFactionCloneBySlug = (slug) => {
+    const { FACTIONS } = window.TerraMystica;
+
+    for (let i = 0, l = FACTIONS.length; i < l; i += 1) {
+      const faction = FACTIONS[i];
+
+      if (faction.slug === slug) {
+        return { ...faction };
+      }
+    }
+
+    return null;
+  };
+
+  /**
+   * Updates the total player value from the DOM counter element
+   */
+  const updateTotalPlayerCount = () => {
+    const counter = document.querySelector('[data-number-players]');
+
+    counter.innerHTML = selectedFactions.length;
+  };
+
+  /**
+   * Handles the click event over a faction selection button
+   * @param {Object} evt - Click event
+   */
+  const onFactionSelectClick = (evt) => {
+    const button = evt.currentTarget;
+    const slug = button.dataset.factionSelect;
+
+    // Check if the current faction is already action
+    const faction = findSelectedFactionBySlug(slug);
+
+    if (faction === null) {
+      const clone = getFactionCloneBySlug(slug);
+
+      // Check if another faction of the same color is selected
+      const existingColoredFaction = findSelectedFactionByColor(clone.color);
+
+      // If it is, uncheck it
+      if (existingColoredFaction !== null) {
+        removeSelectedFactionBySlug(existingColoredFaction.slug);
+        document
+          .querySelector(
+            `[data-faction-select="${existingColoredFaction.slug}"]`
+          )
+          .classList.remove('is-active');
+      }
+
+      // Check if we are already at max player count
+      if (selectedFactions.length < MAX_PLAYERS) {
+        // Mark current faction as active
+        button.classList.add('is-active');
+
+        selectedFactions.push(clone);
+      }
+    } else {
+      removeSelectedFactionBySlug(slug);
+
+      // Mark current faction as inactive
+      button.classList.remove('is-active');
+    }
+
+    // Update total player count
+    updateTotalPlayerCount();
   };
 
   /**
@@ -113,7 +243,7 @@ window.TerraMystica.App = (() => {
     playersPassed += 1;
 
     // Check if all the factions have already passed
-    if (playersPassed === totalPlayers) {
+    if (playersPassed === selectedFactions.length) {
       currentRound += 1;
       playersPassed = 0;
 
@@ -145,7 +275,7 @@ window.TerraMystica.App = (() => {
         });
 
       // Check if the game has ended
-      if (currentRound > totalRounds) {
+      if (currentRound > TOTAL_ROUNDS) {
         navigateToView(2);
         // totalPlayers = 0;
       }

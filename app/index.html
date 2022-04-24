@@ -49,76 +49,134 @@
         <!-- 2. Selección de raza y maybe el nombre del jugador -->
         <section class="view" data-nav-id="2">
           <div class="view__content">
-            <p class="view__description">Choose the faction for each player</p>
+            <p class="view__description m-none">
+              Choose the faction for each player
+            </p>
 
-            <div class="factions">
+            <div class="factions m-top">
               <div class="factions__cell">
-                <button type="button" class="faction faction--chaos-magicians">
+                <button
+                  type="button"
+                  class="faction faction--chaos-magicians"
+                  data-faction-select="chaos-magicians"
+                >
                   Chaos Magicians
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--giants">
+                <button
+                  type="button"
+                  class="faction faction--giants"
+                  data-faction-select="giants"
+                >
                   Giants
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--fakirs">
+                <button
+                  type="button"
+                  class="faction faction--fakirs"
+                  data-faction-select="fakirs"
+                >
                   Fakirs
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--nomads">
+                <button
+                  type="button"
+                  class="faction faction--nomads"
+                  data-faction-select="nomads"
+                >
                   Nomads
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--halflings">
+                <button
+                  type="button"
+                  class="faction faction--halflings"
+                  data-faction-select="halflings"
+                >
                   Halflings
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--cultists">
+                <button
+                  type="button"
+                  class="faction faction--cultists"
+                  data-faction-select="cultists"
+                >
                   Cultists
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--alchemists">
+                <button
+                  type="button"
+                  class="faction faction--alchemists"
+                  data-faction-select="alchemists"
+                >
                   Alchemists
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--darklings">
+                <button
+                  type="button"
+                  class="faction faction--darklings"
+                  data-faction-select="darklings"
+                >
                   Darklings
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--mermaids">
+                <button
+                  type="button"
+                  class="faction faction--mermaids"
+                  data-faction-select="mermaids"
+                >
                   Mermaids
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--swarmlings">
+                <button
+                  type="button"
+                  class="faction faction--swarmlings"
+                  data-faction-select="swarmlings"
+                >
                   Swarmlings
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--auren">
+                <button
+                  type="button"
+                  class="faction faction--auren"
+                  data-faction-select="auren"
+                >
                   Auren
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--witches">
+                <button
+                  type="button"
+                  class="faction faction--witches"
+                  data-faction-select="witches"
+                >
                   Witches
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--engineers">
+                <button
+                  type="button"
+                  class="faction faction--engineers"
+                  data-faction-select="engineers"
+                >
                   Engineers
                 </button>
               </div>
               <div class="factions__cell">
-                <button type="button" class="faction faction--dwarves">
+                <button
+                  type="button"
+                  class="faction faction--dwarves"
+                  data-faction-select="dwarves"
+                >
                   Dwarves
                 </button>
               </div>
@@ -154,13 +212,23 @@
               </div> -->
             </div>
 
-            <button
-              type="button"
-              class="button button--primary"
-              data-nav-page="3"
-            >
-              Submit
-            </button>
+            <footer class="view__footer view__row">
+              <div class="view__col">
+                <div class="player-count">
+                  <div class="player-count__circle" data-number-players>0</div>
+                  <p class="player-count__text">Players</p>
+                </div>
+              </div>
+              <div class="view__col">
+                <button
+                  type="button"
+                  class="button button--primary"
+                  data-nav-page="3"
+                >
+                  Submit
+                </button>
+              </div>
+            </footer>
           </div>
         </section>
 

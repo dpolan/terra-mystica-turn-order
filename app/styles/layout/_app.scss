@@ -49,6 +49,15 @@ body {
     box-shadow: 0 0 em(12) rgba(#121212, 0.6), 0 0 em(6) rgba(#121212, 0.5),
       inset 0 0 em(8) rgba(white, 0.5);
     border: 1px solid #637d93;
+
+    > * {
+      flex: 0 0 auto;
+    }
+
+    .view__footer {
+      flex: 1 0 auto;
+      align-items: flex-end;
+    }
   }
 
   &__title {
@@ -76,5 +85,23 @@ body {
     text-shadow: 0 0 em(12, 14) #121212;
     text-align: center;
     margin: 0 0 em(18, 14);
+  }
+
+  &__row {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+
+  &__col {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+
+    &--centered {
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
