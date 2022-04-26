@@ -8,3 +8,4 @@ Aplicación web para implementar el cambio de orden de turno dinámico incluido 
 - [x] Control de orden de turno
 - [x] Selección de raza (excluyentes por color) y cómputo de jugadores
 - [ ] Comportamiento responsive (fluído independientemente de la orientación)
+- [ ] Convertir en PWA para funciones de instalación y acceso offline
