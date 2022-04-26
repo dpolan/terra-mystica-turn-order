@@ -3,22 +3,22 @@
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
-  margin: 0 0 em(6);
+  margin: 0 0 em(4);
 
   &__circle {
     display: flex;
     justify-content: center;
     align-items: center;
-    font: normal em(16) / 1 $font-primary;
+    font: normal em(18) / 1 $font-primary;
     color: map-get($colors, accent);
-    width: 8vw;
-    height: 8vw;
+    width: em(28, 18);
+    height: em(28, 18);
     border-radius: 100%;
     background-color: darken(map-get($colors, background), 10%);
     box-shadow: 0 em(1) em(4) rgba(#121212, 0.5);
     border: em(2) solid map-get($colors, accent);
     text-shadow: 0 0 em(4) #121212;
-    margin: 0 em(6, 16) 0 0;
+    margin: 0 em(4, 18) 0 0;
   }
 
   &__text {

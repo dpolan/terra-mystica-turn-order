@@ -291,6 +291,8 @@ window.TerraMystica.App = (() => {
    * @param {Object} evt - Button click event
    */
   const onOrderFactionClick = (evt) => {
+    const { Modal } = window.TerraMystica;
+
     const faction = evt.currentTarget;
 
     const columnOdd = document.querySelector('[data-order-col="odd"]');
@@ -345,7 +347,12 @@ window.TerraMystica.App = (() => {
 
       // Check if the game has ended
       if (currentRound > TOTAL_ROUNDS) {
-        navigateToView(2);
+        Modal.show(Modal.TYPES.INFO, {
+          content: '<p>Endgame! Thank you!</p>',
+          callback: () => {
+            navigateToView(2);
+          },
+        });
       }
     }
   };

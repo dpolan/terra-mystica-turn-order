@@ -23,7 +23,7 @@
     transform 0.3s ease-in-out;
 
   &.is-active {
-    border-color: #d4c34d;
+    border-color: map-get($colors, accent);
     box-shadow: em(1) em(1) em(8) rgba(#121212, 1),
       inset 0 0 em(8) rgba(#121212, 0.5);
     transform: scale(1.08);
@@ -36,6 +36,14 @@
 
   &.is-inactive {
     pointer-events: none;
+  }
+
+  &--empty {
+    background: transparent;
+    border-color: map-get($colors, accent);
+    box-shadow: em(1) em(1) em(6) rgba(#121212, 0.6),
+      inset em(4) em(4) em(20)
+        rgba(darken(map-get($colors, secondary), 10%), 0.7);
   }
 
   &--chaos-magicians,

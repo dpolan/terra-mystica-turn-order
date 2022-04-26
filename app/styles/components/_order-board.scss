@@ -1,5 +1,6 @@
 .order-board {
   width: 100%;
+  max-width: em(216);
   display: flex;
   flex-flow: row nowrap;
 
@@ -8,6 +9,7 @@
     display: flex;
     flex-flow: column nowrap;
     width: 50%;
+    z-index: 2;
 
     &[data-order-col='odd'] {
       align-items: flex-start;
@@ -18,7 +20,86 @@
     }
 
     .faction {
-      margin: 0 0 em(12);
+      margin: 0 0 em(20, 10);
+
+      &:not(.faction--empty) {
+        animation: order-board-faction-enter 0.3s ease-in-out;
+      }
+
+      @keyframes order-board-faction-enter {
+        0% {
+          transform: scale(1.08);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  &__background {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+
+    .order-board__col {
+      &:first-child {
+        align-items: flex-start;
+      }
+
+      &:last-child {
+        align-items: flex-end;
+      }
+    }
+  }
+
+  &__numbers {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  &__number {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    font: normal em(24) / 1 $font-secondary;
+    color: map-get($colors, modal-background);
+    text-align: center;
+    text-shadow: 0 0 em(12, 24) #121212, 0 0 em(2, 24) #121212;
+    width: 100%;
+    height: em(60, 24);
+    margin: 0 0 em(20, 24);
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: em(2, 24);
+      border-radius: em(8, 24);
+      box-shadow: 0 0 em(12, 24) rgba(#121212, 0.6),
+        0 0 em(6, 24) rgba(#121212, 0.5);
+      background: map-get($colors, accent);
+      transform: translateY(em(9, 24));
+      position: absolute;
+      left: 0;
+      top: 100%;
+    }
+
+    &:last-child {
+      &::after {
+        content: none;
+      }
     }
   }
 }

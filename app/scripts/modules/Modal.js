@@ -46,6 +46,7 @@ window.TerraMystica.Modal = (() => {
    */
   const show = (type, data) => {
     const actions = {};
+    const callback = data.callback || (() => {});
 
     actions[TYPES.INFO] = (modal) => {
       const { content } = data;
@@ -72,7 +73,9 @@ window.TerraMystica.Modal = (() => {
 
       // Handle clicks over the close button but also the background
       modal.querySelectorAll('[data-modal-close]').forEach((button) => {
-        button.addEventListener('click', close);
+        button.addEventListener('click', (evt) => {
+          close(evt, callback);
+        });
       });
 
       // Append the modal DOM element into the document
