@@ -66,7 +66,12 @@ window.TerraMystica.App = (() => {
         element.addEventListener('click', onOrderFactionClick);
       });
 
+      // Set the current round
       currentRound = 1;
+
+      document.querySelectorAll('[data-round-index]').forEach((element) => {
+        element.classList.remove('is-active');
+      });
 
       const targetRound = document.querySelector(
         `[data-round-index="${currentRound}"]`
@@ -99,6 +104,8 @@ window.TerraMystica.App = (() => {
 
         return false;
       }
+
+      return true;
     };
 
     if (actions[view]) {
