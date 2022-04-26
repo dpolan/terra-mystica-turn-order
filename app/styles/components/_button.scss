@@ -5,6 +5,7 @@
   border: none;
 
   &--primary {
+    width: fit-content;
     font: normal em(16) / 1 $font-secondary;
     text-transform: uppercase;
     color: map-get($colors, accent);
@@ -14,5 +15,12 @@
     border: em(2, 16) solid map-get($colors, accent);
     box-shadow: 0 0 em(12, 16) rgba(#121212, 0.6),
       inset 0 0 em(4, 16) rgba(#121212, 0.3);
+  }
+
+  &--close {
+    width: em(33);
+    height: em(33);
+    background: url('../images/ico-close.png') 50% 50% / 80% auto no-repeat;
+    opacity: 0.7;
   }
 }

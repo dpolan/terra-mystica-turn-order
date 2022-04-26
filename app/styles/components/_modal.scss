@@ -1,0 +1,101 @@
+.modal {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: em(24);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 20;
+
+  .modal {
+    &__background {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#000, 0.4);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      animation: modal-background-enter 0.3s ease-in-out;
+
+      @keyframes modal-background-enter {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &.anim-leave {
+    .modal {
+      &__background {
+        animation: modal-background-leave 0.3s ease-in-out 0.2s;
+
+        @keyframes modal-background-leave {
+          0% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+          }
+        }
+      }
+
+      &__content {
+        animation: modal-content-leave 0.3s ease-in-out forwards;
+
+        @keyframes modal-content-leave {
+          0% {
+            transform: translateY(0%);
+          }
+          100% {
+            transform: translateY(em(24)) translateY(100%);
+          }
+        }
+      }
+    }
+  }
+
+  &--info {
+    .modal {
+      &__content {
+        width: 100%;
+        padding: em(16) em(40) em(16) em(20);
+        background: map-get($colors, modal-background);
+        border-radius: em(12);
+        box-shadow: 0 0 em(10) rgba(#121212, 0.4);
+        animation: modal-content-enter 0.5s ease-in-out;
+        z-index: 2;
+
+        @keyframes modal-content-enter {
+          0% {
+            transform: translateY(em(24)) translateY(100%);
+          }
+          100% {
+            transform: translateY(0%);
+          }
+        }
+      }
+    }
+
+    p {
+      font: italic em(13) / 1.3 $font-secondary;
+      color: map-get($colors, secondary);
+    }
+
+    .button--close {
+      transform: translateY(-50%);
+      position: absolute;
+      top: 50%;
+      right: em(14);
+      z-index: 2;
+    }
+  }
+}

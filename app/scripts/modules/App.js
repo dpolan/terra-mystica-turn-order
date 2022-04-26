@@ -13,8 +13,9 @@ window.TerraMystica.App = (() => {
 
   /**
    * Configures the current view behavior
+   * @param {String} view - Slug identifier for the target view
    */
-  const configureCurrentView = () => {
+  const configureView = (view) => {
     const { Utils } = window.TerraMystica;
 
     const actions = {};
@@ -74,9 +75,37 @@ window.TerraMystica.App = (() => {
       targetRound.classList.add('is-active');
     };
 
-    if (actions[currentView]) {
-      actions[currentView]();
+    if (actions[view]) {
+      actions[view]();
     }
+  };
+
+  /**
+   * Configures the current view behavior
+   * @param {String} view - Slug identifier for the target view
+   */
+  const validateView = (view) => {
+    const { Modal } = window.TerraMystica;
+    const actions = {};
+
+    // Faction selection
+    actions[2] = () => {
+      // Check that we have at least 2 players selected
+      if (selectedFactions.length < 2) {
+        Modal.show(Modal.TYPES.INFO, {
+          content:
+            '<p>You must select at least 2 players for the game to start.</p>',
+        });
+
+        return false;
+      }
+    };
+
+    if (actions[view]) {
+      return actions[view]();
+    }
+
+    return true;
   };
 
   /**
@@ -204,31 +233,35 @@ window.TerraMystica.App = (() => {
     const view = document.querySelector(`[data-nav-id="${index}"]`);
 
     if (view !== null) {
-      const currentContent = document.querySelector(
-        `[data-nav-id="${currentView}"] .view__content`
-      );
-      const targetContent = view.querySelector('.view__content');
+      const isValid = validateView(currentView);
 
-      gsap.to(currentContent, {
-        duration: 0.8,
-        scale: 1.04,
-        ease: Power4.easeInOut,
-        clearProps: 'all',
-      });
+      if (isValid === true) {
+        const currentContent = document.querySelector(
+          `[data-nav-id="${currentView}"] .view__content`
+        );
+        const targetContent = view.querySelector('.view__content');
 
-      gsap.from(targetContent, {
-        duration: 0.8,
-        delay: 0.2,
-        scale: 1.04,
-        ease: Power4.easeInOut,
-      });
+        gsap.to(currentContent, {
+          duration: 0.8,
+          scale: 1.04,
+          ease: Power4.easeInOut,
+          clearProps: 'all',
+        });
 
-      const slider = document.getElementById('slider');
-      slider.style.transform = `translateX(-${33.3 * (index - 1)}%)`;
+        gsap.from(targetContent, {
+          duration: 0.8,
+          delay: 0.2,
+          scale: 1.04,
+          ease: Power4.easeInOut,
+        });
 
-      currentView = index;
+        const slider = document.getElementById('slider');
+        slider.style.transform = `translateX(-${33.3 * (index - 1)}%)`;
 
-      configureCurrentView();
+        currentView = index;
+
+        configureView(currentView);
+      }
     }
   };
 
