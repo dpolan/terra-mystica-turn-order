@@ -21,6 +21,10 @@ body {
   overflow: hidden;
   background: url('../images/table-background.jpg') 50% 50% / cover no-repeat;
 
+  @media screen and (min-width: em(380)) {
+    font-size: 1.2em;
+  }
+
   &__slider {
     display: flex;
     flex-flow: row nowrap;
